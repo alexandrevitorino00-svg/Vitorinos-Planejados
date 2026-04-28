@@ -1,38 +1,46 @@
+/* 1. CONFIGURAÇÕES GERAIS E VARIÁVEIS */
 :root {
-    --primaria: #dbdde0;
-    --detalhe: transparent;
-    --fundo: #ffffff;
-    --texto: #ffffff;
+    --primary: #c19136;    /* Dourado/Bronze para destaques */
+    --bg-dark: #121212;     /* Preto profundo para o fundo */
+    --bg-card: #1e1e1e;     /* Cinza escuro para cards */
+    --text-main: #ffffff;   /* Branco para textos */
+    --text-muted: #a0a0a0;  /* Cinza para descrições */
+    --accent: #25d366;      /* Verde WhatsApp */
+    --transition: 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #343434;
-    color: var(--texto);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
     line-height: 1.6;
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Header & Nav */
+/* 2. HEADER E NAVEGAÇÃO */
 header {
-    background: #1c1c1c;
-    padding: 20px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(193, 145, 54, 0.2);
 }
 
 nav {
@@ -42,261 +50,163 @@ nav {
 }
 
 .logo img {
-  width: 40px;
-  height: auto;
+    height: 50px;
+    transition: var(--transition);
 }
-.logo span { color: var(--detalhe); }
 
-.nav-links { display: flex; list-style: none; gap: 20px; }
-.nav-links a { text-decoration: none; color: var(--primaria); font-weight: 500; }
-
-/* Hero Section */
-.hero {
-    height: 80vh;
-    background: linear-gradient(rgba(77, 75, 75, 0.6), rgba(0,0,0,0.6)), url('../assets/hero-bg.jpg') center/cover;
+.nav-links {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #c19136;
+    list-style: none;
+    gap: 30px;
 }
 
-.texto{
-    color: #fff;
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--text-muted);
 }
 
 .btn-main {
-    background: transparent;
-    color: #ffffff;
-    padding: 12px 30px;
+    background: var(--primary);
+    color: #000;
+    padding: 10px 35px;
     text-decoration: none;
-    border: 1.5px solid #c19136;
-    border-radius: 50px;
-    display: inline-block;
-    margin-top: 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: var(--transition);
 }
 
-/* Grid de Portfólio */
-.grid-portfolio {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+.btn-main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(193, 145, 54, 0.3);
 }
 
-.projeto-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    background: #fff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    height: 700px;
-}
-
-.card-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    color: white;
-    z-index: 2;
-}
-
-.projeto-card:hover {
-  transform: scale(1.03);
-  transition: 0.3s;
-}
-
-/* Página de Módulos */
+/* PROJETOS (MODULOS-ITEM) */
 .modulos-header {
+    padding: 80px 0 40px;
     text-align: center;
-    padding: 60px 0;
 }
 
 .grid-modulos {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 60px;
     margin-bottom: 80px;
 }
 
 .modulo-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
     align-items: center;
-    gap: 50px;
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.modulo-item:nth-child(even) {
+    direction: rtl; /* Inverte a ordem da imagem e texto alternadamente */
+}
+
+.modulo-item:nth-child(even) .modulo-texto {
+    direction: ltr;
 }
 
 .modulo-img img {
-    width: 300px;
+    width: 100%;
     border-radius: 8px;
+    object-fit: cover;
+    transition: var(--transition);
 }
 
 .modulo-texto h3 {
-    color: var(--primaria);
+    font-size: 2rem;
+    color: var(--primary);
     margin-bottom: 15px;
-    font-size: 1.5rem;
 }
 
-.modulo-texto ul {
-    list-style: none;
-}
-
-.modulo-texto li {
-    margin-bottom: 8px;
-    padding-left: 20px;
-    position: relative;
-}
-
-.modulo-texto li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: var(--detalhe);
-}
-
-/* Responsividade para Módulos */
-@media (max-width: 768px) {
-    .modulo-item {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-.legenda {
-    color: #1c1c1c;
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-/* Container da Loja */
-.shop-section {
-    padding: 60px 20px;
-}
-
+/* 5. CATÁLOGO / LOJA DE MÓDULOS */
 .shop-section h2 {
     text-align: center;
-    margin-bottom: 40px;
-    color: #c19136;
-    font-size: 2rem;
+    padding: 40px 0;
+    font-size: 2.5rem;
 }
 
-/* Grid de Produtos - Responsivo */
 .grid-produtos {
     display: grid;
-    /* Aqui usamos o auto-fit para preencher a tela automaticamente */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding-bottom: 80px;
 }
 
-/* Card do Produto */
 .produto-card {
-    background: #fff;
-    border-radius: 10px;
+    background: var(--bg-card);
+    border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    height: auto;
+    transition: var(--transition);
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .produto-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+    border-color: var(--primary);
 }
 
 .produto-card img {
-  width: 100%;
-  height:auto;
-  object-fit: cover;
-  object-position: top center;
-}
-.img-ajustada {
-    object-fit: contain;
-    background: #f5f5f5;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transform: scale(1.15);
 }
 
-/* Badge de Destaque */
-.badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: #c19136;
-    color: white;
-    padding: 5px 12px;
-    font-size: 0.8rem;
-    border-radius: 20px;
-    z-index: 10;
-}
-
-/* Informações do Produto */
 .produto-info {
     padding: 20px;
-    z-index: 1; /* Fica atrás da imagem quando ela expande */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
 }
 
-.produto-info h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #0a0a0a;
-}
-
-.produto-info p {
-    font-size: 0.9rem;
-    color: #0a0a0a;
-    margin-bottom: 15px;
+.badge {
+    background: var(--primary);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 5px 12px;
+    position: absolute;
+    margin: 10px;
+    border-radius: 4px;
 }
 
 .preco {
-    font-size: 1.4rem;
+    display: block;
+    font-size: 1.25rem;
+    color: var(--primary);
     font-weight: bold;
-    color: #1c1c1c;
-    margin-top: auto; /* Joga o preço para o fim do card */
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
-/* Botão de Compra */
 .btn-comprar {
     display: block;
     text-align: center;
-    background: #1c1c1c;
-    color: #fff;
-    text-decoration: none;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #c19136;
-    transition: background 0.3s;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: var(--transition);
 }
 
 .btn-comprar:hover {
-    background: #c19136;
-}
-/* =========================================
-   6. PÁGINA DE CONTATO (ESTILO CARDS)
-   ========================================= */
-.contato-section {
-    padding: 80px 20px;
-    text-align: center;
+    background: var(--primary);
+    color: #000;
 }
 
-.contato-header {
-    margin-bottom: 50px;
-}
-
-.contato-header h2 {
-    font-size: 2.5rem;
-    color: var(--detalhe);
-    margin-bottom: 10px;
-}
+/* 6. PÁGINA DE CONTATO */
+.contato-section { padding: 80px 0; }
 
 .contato-grid {
     display: grid;
@@ -305,89 +215,44 @@ nav {
 }
 
 .contato-card {
-    background: #1c1c1c;
+    background: var(--bg-card);
     padding: 40px;
-    border-radius: 15px;
-    border: 1px solid #444;
-    transition: transform 0.3s, border-color 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
 }
 
-.contato-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--detalhe);
-}
-
-/* Destaque para o Card do WhatsApp */
 .contato-card.destaque {
-    border: 2px solid var(--detalhe);
-    background: linear-gradient(145deg, #1c1c1c, #252525);
+    border: 1px solid var(--accent);
 }
 
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.contato-card h3 {
-    color: var(--detalhe);
-    font-size: 1.5rem;
-}
-
-.contato-card p {
-    color: #ccc;
-    font-size: 1rem;
-    min-height: 50px;
-}
-
-.status {
-    font-size: 0.8rem;
-    color: #4caf50; /* Verde para 'Online' */
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Botões e Links */
 .btn-whatsapp {
-    background: #25d366; /* Cor oficial do WhatsApp */
+    background: var(--accent);
     color: #fff;
-    text-decoration: none;
-    padding: 15px 30px;
+    padding: 12px 25px;
+    display: inline-block;
     border-radius: 50px;
-    font-weight: bold;
-    width: 100%;
-    transition: 0.3s;
-}
-
-.btn-whatsapp:hover {
-    background: #128c7e;
-    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-}
-
-.link-simples {
-    color: var(--detalhe);
     text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1px dashed var(--detalhe);
-    padding-bottom: 2px;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
-.link-simples:hover {
-    color: #fff;
-    border-bottom-color: #fff;
-}
-
+/* 7. ANIMAÇÕES */
 .reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.6s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s ease-out;
 }
 
 .reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .modulo-item { grid-template-columns: 1fr; }
+    .nav-links { display: none; } /* Idealmente aqui você faria um menu hamburguer */
+    .modulo-item:nth-child(even) { direction: ltr; }
 }

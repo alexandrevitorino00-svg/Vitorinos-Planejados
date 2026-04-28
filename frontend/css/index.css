@@ -1,0 +1,178 @@
+:root {
+    --cor-primaria: #1f1f1f;
+    --cor-secundaria: #c19136;
+    --cor-fundo: #e5e6d8;
+    --cor-texto: #333;
+    --branco: #ffffff;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+/* CONTAINER */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* HEADER */
+header {
+    background: var(--cor-primaria);
+    padding: 15px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--branco);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--cor-secundaria);
+}
+
+/* HERO */
+.hero {
+    height: 90vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('../assets/hero-bg.webp') center/cover no-repeat;
+
+    color: #fff;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* BOTÃO */
+.btn-main {
+    display: inline-block;
+    background: var(--cor-secundaria);
+    color: var(--branco);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    background: #a88d56;
+}
+
+/* SEÇÃO PROJETOS */
+#projetos {
+    padding: 60px 0;
+    text-align: center;
+}
+
+#projetos h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+/* GRID */
+.grid-portfolio-index {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* CARDS */
+.projeto-card-index {
+    background: var(--branco);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    
+}
+
+.projeto-card-index img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-info-index {
+    padding: 15px;
+}
+
+.card-info-index h3 {
+    font-size: 1.2rem;
+}
+
+/* HOVER */
+.projeto-card-index:hover {
+    transform: translateY(-5px);
+}
+
+/* ANIMAÇÃO REVEAL */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.6s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .nav-links {
+        display: none; /* depois você pode transformar em menu hamburguer */
+    }
+}

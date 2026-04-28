@@ -3,64 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitorinos Planejados </title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Vitorinos Planejados | Móveis Sob Medida</title>
+    <link rel="stylesheet" href="css/index.css">
     <link rel="icon" href="assets/icone.ico">
-    <meta name="description" content="Móveis planejados sob medida em Itaquaquecetuba, Mogi das Cruzes, Suzano, Ferraz de Vasconcelos e todo Alto Tietê. Projetos de cozinhas, dormitórios e móveis personalizados com qualidade, precisão e excelente acabamento. Solicite seu orçamento.">
-    <meta name="keywords" content="móveis planejados Itaquaquecetuba, móveis sob medida Mogi das Cruzes, móveis planejados Suzano, móveis planejados Ferraz de Vasconcelos, marcenaria Alto Tietê, móveis personalizados SP">
 </head>
 <body>
 
 <header>
     <nav class="container">
         <div class="logo">
-            <a href="#home">
-                <img src="assets/logoVitorinos1.png" alt="Vitorinos Planejados Logo" id="logo-img">
+            <a href="index.html">
+                <img src="assets/logoVitorinos1.png" alt="Vitorinos Planejados">
             </a>
         </div>
         <ul class="nav-links">
             <li><a href="templates/modulos.html">Módulos</a></li>
             <li><a href="templates/projetos.html">Projetos</a></li>
-            <li><a href="templates/contato.html" class="btn-orcamento">Contato</a></li>
+            <li><a href="templates/contato.html">Contato</a></li>
         </ul>
     </nav>
 </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Transformamos madeira em sonhos sob medida.</h1>
-                <p class="texto">Móveis planejados com precisão e acabamento impecável para todos os ambientes.</p>
-                <a href="templates/projetos.html" class="btn-main">Conhecer Projetos</a>
-            </div>
-        </section>
+<main>
+    <section id="home" class="hero">
+        <div class="hero-content container">
+            <h1 class="reveal active">Transformamos madeira em sonhos sob medida.</h1>
+            <p class="texto reveal active" >Precisão e acabamento impecável para todos os ambientes do seu lar.</p><br>
+            <a href="templates/projetos.html" class="btn-main reveal active">Conhecer Projetos</a>
+        </div>
+    </section>
 
-<section id="projetos" class="container">
-    <h2 class="reveal">Nossos Projetos</h2>
-    <div class="grid-portfolio"> <article class="projeto-card">
-            <div class="card-info" class="projeto-card reveal"><h3>Cozinhas Premium</h3></div>
-            <img src="assets/cozinha-01.webp" alt="Cozinha Planejada MDF">
-        </article>
+    <section id="projetos" class="container">
+        <h2 class="reveal">Nossos Ambientes</h2>
+        
+        <div class="grid-portfolio-index"> 
+            <article class="projeto-card-index reveal">
+                <img src="assets/cozinha-01.webp" alt="Cozinhas Premium">
+                <div class="card-info-index">
+                    <h3>Cozinhas Premium</h3>
+                </div>           
+            </article>
 
-        <article class="projeto-card">
-            <div class="card-info"><h3>Lojas</h3></div>
-            <img src="assets/Joias.webp" alt="Joias">
-        </article>
+            <article class="projeto-card-index reveal">
+                <img src="assets/Joias.webp" alt="Lojas e Comerciais">
+                <div class="card-info-index">
+                    <h3>Projetos Comerciais</h3>
+                </div>                       
+            </article>
 
-        <article class="projeto-card">
-            <div class="card-info"><h3>Painéis</h3></div>
-            <img src="assets/sala1.webp" alt="Painéis">
-        </article>
+            <article class="projeto-card-index reveal">
+                <img src="assets/sala1.webp" alt="Painéis e Home Theater">
+                <div class="card-info-index">
+                    <h3>Salas e Painéis</h3>
+                </div>
+            </article>
 
-        <article class="projeto-card">
-            <div class="card-info"><h3>Dormitório</h3></div>
-            <img src="assets/dormitorio1.webp" alt="Dormitório">
-        </article>
+            <article class="projeto-card-index reveal">
+                <img src="assets/dormitorio1.webp" alt="Dormitórios Planejados">
+                <div class="card-info-index">
+                    <h3>Dormitórios</h3>
+                </div>
+            </article>
+        </div> 
+    </section>    
+</main>
 
-    </div> </section>
-        </section>
-    </main>
-
-    <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
