@@ -97,3 +97,24 @@ function reveal() {
         }
     }
 }
+// Seleciona o botão e o menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+// Adiciona o evento de clique no botão hambúrguer
+hamburger.addEventListener('click', () => {
+    // A cada clique, adiciona ou remove a classe 'active'
+    navLinks.classList.toggle('active');
+    
+    // Opcional: Animação simples no botão (X)
+    hamburger.classList.toggle('toggle');
+});
+
+// Opcional: Fecha o menu ao clicar em qualquer link (bom para UX)
+const navItems = document.querySelectorAll('.nav-links a');
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('toggle');
+    });
+});

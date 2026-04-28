@@ -165,14 +165,67 @@ nav {
     opacity: 1;
     transform: translateY(0);
 }
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000; /* Garante que fique acima de tudo */
+}
 
-/* RESPONSIVO */
+/* Desenha as barrinhas do hambúrguer */
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin-bottom: 5px;
+    background-color: var(--branco);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Remove a margem da última barrinha */
+.hamburger span:last-child {
+    margin-bottom: 0;
+}
+
+/* Configurações para Celular (até 768px) */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
+    /* Faz o cabeçalho manter os itens nas pontas */
+    nav {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    /* O botão hambúrguer fica sempre visível e acima da cortina */
+    .hamburger {
+        display: block;
+        position: relative;
+        z-index: 1001; 
     }
 
     .nav-links {
-        display: none; /* depois você pode transformar em menu hamburguer */
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 100%; /* Ocupa a tela toda para evitar que o fundo apareça cortado */
+        background-color: rgba(31, 31, 31, 0.98); /* Cor primária com leve transparência */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.4s ease-in-out;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    /* Aumenta o espaço dos links no mobile para facilitar o clique com o dedo */
+    .nav-links li {
+        margin: 20px 0;
     }
 }
